@@ -151,9 +151,29 @@
   <img src="qrcode_instagram1.jpg" alt="QR Code Instagram" class="qrcode">
 
   <footer>
-    SAT PREPER 2015 - 2025 © Todos os direitos reservados
+    SAT PREPER © 2015 - 2025 Todos os direitos reservados
      <li><a href="https://skardec.github.io/machine_of_optimization/" class="text-black-900 hover:underline">Voltar a página principal</a></li>
   </footer>
+    <p>Visitantes: <span id="contador"></span></p>
+
+<script>
+  fetch('https://api.countapi.xyz/hit/skardec.github.io/machine_of_optimization')
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById('contador').innerText = res.value;
+    });
+</script>
+  <p>Visitantes: <span id="contador"></span></p>
+<p>Último acesso: <span id="ultimo"></span></p>
+
+<script>
+  fetch("https://seuworker.cloudflare.workers.dev")
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById("contador").innerText = res.total;
+      document.getElementById("ultimo").innerText = res.ultimo_acesso;
+    });
+</script>
 
 </body>
 </html>
